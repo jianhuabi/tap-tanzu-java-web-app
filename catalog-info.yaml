@@ -11,6 +11,19 @@ metadata:
     - tanzu
   annotations:
     'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=tap-tanzu-java-web-app'
+  links:
+    - url: https://confluence.eng.vmware.com/x/hN9ZRg
+      icon: docs
+      title: Plugin Guide
+    - url: https://jira.eng.vmware.com/projects/PSTAR
+      title: JIRA Project
+      icon: dashboard
+    - url: https://runway-ci.eng.vmware.com/teams/project-star/pipelines/develop
+      icon: dashboard
+      title: Concourse Pipeline
+    - url: https://vmware.slack.com/archives/C028W549JHX
+      icon: chat
+      title: Slack Channel
 spec:
   type: service
   lifecycle: experimental
