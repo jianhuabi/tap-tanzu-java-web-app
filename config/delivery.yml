@@ -12,6 +12,7 @@ spec:
   template:
     metadata:
       annotations:
+        autoscaling.knative.dev/minScale: "1"
         boot.spring.io/actuator: http://:8081/actuator
         boot.spring.io/version: 2.5.8
         conventions.apps.tanzu.vmware.com/applied-conventions: |-
@@ -19,6 +20,7 @@ spec:
           spring-boot-convention/spring-boot-graceful-shutdown
           spring-boot-convention/spring-boot-web
           spring-boot-convention/spring-boot-actuator
+          appliveview-sample/app-live-view-appflavour-check
           appliveview-sample/app-live-view-connector-boot
           appliveview-sample/app-live-view-appflavours-boot
           appliveview-sample/app-live-view-systemproperties
@@ -38,8 +40,8 @@ spec:
       containers:
       - env:
         - name: JAVA_TOOL_OPTIONS
-          value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details=always -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include=* -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: us-docker.pkg.dev/cnr-demo/gcr.io/tap-wkld/tap-tanzu-java-web-app-dev-space@sha256:24405196ed1b20afef3d5b8f2c0899406b07b38edf6804448d044329c5e233fa
+          value: -Dmanagement.endpoint.health.show-details=always -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include=* -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
+        image: us-docker.pkg.dev/cnr-demo/gcr.io/tap-wkld/tap-tanzu-java-web-app-dev-space@sha256:9ee388175b2bb69cb4313a137c17070097a5abeef79cb138fc77e5752ddc18d2
         name: workload
         ports:
         - containerPort: 8080
